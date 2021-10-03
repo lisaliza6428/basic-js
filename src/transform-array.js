@@ -14,15 +14,12 @@ import { NotImplementedError } from '../extensions/index.js';
  * 
  */
 export default function transform(arr) {
- 
-
-
-
   if (Array.isArray(arr) === false) {
     throw new Error("'arr' parameter must be an instance of the Array!");
   } 
-  if (arr = []) return []
-
+  if (arr = []) return [];
+  if (arr.includes('--discard-next') === false && arr.includes('--discard-prev') === false
+ &&  arr.includes('--double-next') === false && arr.includes('--double-prev') === false) return arr;
   if (arr.includes('--discard-next') === true) {
     let x = arr.findIndex( y => y ==='--discard-next');
     console.log(x);
@@ -43,12 +40,12 @@ export default function transform(arr) {
     arr[x] = arr[x+1]
     return arr
   }
-
   if (arr.includes('--double-prev') === true) {
     let x = arr.findIndex( y => y ==='--double-prev');
     console.log(x);
     arr[x] = arr[x-1]
     return arr
-  }
+
+}
 
 }
